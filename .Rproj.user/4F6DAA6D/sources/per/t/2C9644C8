@@ -1,0 +1,26 @@
+{
+    "id": "2C9644C8",
+    "path": "~/Thesis/Data/Shiny/server.R",
+    "project_path": "server.R",
+    "type": "r_source",
+    "hash": "1507323346",
+    "contents": "",
+    "dirty": false,
+    "created": 1649876612052.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "184,4",
+        "scrollLine": "166"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1649879948,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1649879948627,
+    "read_only": false,
+    "read_only_alternatives": []
+}
