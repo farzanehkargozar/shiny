@@ -56,7 +56,7 @@ git clone https://github.com/hadi-masjedy/shiny
 
 ```r
 ## Run by using runApp()
-setwd("~/EDC-shiny")
+setwd("~/shiny")
 shiny::runApp(appDir = getwd(), port = getOption("shiny.port"),
               launch.browser = getOption("shiny.launch.browser", interactive()),
               host = getOption("shiny.host", "127.0.0.1"), workerId = "",
