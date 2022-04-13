@@ -67,7 +67,7 @@ shiny::runApp(appDir = getwd(), port = getOption("shiny.port"),
 ## CADAA Usage
 
 ### Algorithm
-<img src="/example/algoritm.jpg" width="600">
+<img src="/example/algorithm.jpg" width="600">
   This is primary tab of application and used for exacute the algorithm and its settings.
 
 ### About
