@@ -13,7 +13,6 @@
 #   GPCR receptors using graph theory and similar networks by supervised machine
 #   learning algorithms. 
 #------------------------------------------------------------------------------------- 
-
 library(shiny)
 library(shinyBS)
 library(shinydashboard)
@@ -143,7 +142,7 @@ function(input, output, session) {
         dataForPlot <- data.frame(name = name, probability = targetProbabilityVector)
         
         ggplot(dataForPlot, aes(x = name, y = probability)) +
-            geom_bar(stat = "identity", width=0.2) + theme_minimal() + ggtitle("") + #Accuracy of trained classifiers
+            geom_bar(stat = "identity", width=0.2) + theme_minimal() + ggtitle("") +
             xlab("Name of receptors") +
             ylab("Probability") +
             theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 10), 
