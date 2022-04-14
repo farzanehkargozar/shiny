@@ -2,9 +2,9 @@
 
 
 ## Description of CADAA
-The CADAA (Computer Aided Detection Agonist Antagonist) is an R-Shiny application designed to find an agonist / antagonist of an unknown substance relative to drugs affecting GPCR receptors using graph theory and similar networks by supervised machine learning algorithms. In this research, first the SDF file related to the unknown substance is taken from the input and compared with the data made from the database of 400 drugs affecting GPCR receptors, which were created using a random walk fingerprint, and then Finding the most similar drug to an unknown substance indicates that it has an agonistic or antagonistic role on GPCR receptors, as well as the receptors on which this unknown substance may act.
+The CADAA (Computer Aided Detection Agonist Antagonist) is an R-Shiny application designed to predict agonist / antagonist state of an unknown substance with respect to GPCRs using graph theory and similarity networks by means of supervised machine learning algorithms. In this research, first the SDF file related to the unknown substance is submitted as the input and compared with the fingerprint data made from the database of 400 drugs affecting GPCR receptors. This knowledge based databasee was made by random walk on similarity network of cognate ligands acting on GPCRs (starting with each compound as a seed node). 
 
-In other words, this web-based application, by presenting candidate drugs, determines what kind of action the unknown substance has on GPCR receptors.
+
 ## Install Dependencies
 #### Install CRAN dependencies
 
