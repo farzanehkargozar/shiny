@@ -28,7 +28,7 @@ if(length(cran_pkgs.inst)>0){
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
 BiocManager::install(version = "3.12")
-bioc_pkgs <- c( "supraHex","hexbin",  "fgsea","Rgraphviz")
+bioc_pkgs <- c( "supraHex","hexbin")
 bioc_pkgs.inst <- bioc_pkgs[!(bioc_pkgs %in% rownames(installed.packages()))];
 if(length(bioc_pkgs.inst)>0){
   print(paste0("Missing ", length(bioc_pkgs.inst), " Bioconductor Packages:"));  
