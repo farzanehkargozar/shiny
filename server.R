@@ -18,7 +18,7 @@ library(shinyBS)
 library(shinydashboard)
 library("igraph")
 library("ChemmineR")
-library("dnet")
+# library("dnet")
 library("digest")
 library("ggplot2")
 

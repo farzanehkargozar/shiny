@@ -63,7 +63,7 @@ body <- dashboardBody(
                     box(
                         
                         numericInput(inputId = "num_target", label = "Select number of output target:", 1, 1, 97,1, "100%"),
-                        numericInput(inputId = "num_vortex", label = "Select number of subgraph vortex:", 1, 1, 50,1, "100%"),
+                        numericInput(inputId = "num_vortex", label = "Select number of subgraph vortex:", min = 2, step = 1, max = 50,value = 2, "100%"),
                         selectInput(inputId = "hash_func", label = "Select hash code function for fingerprint:", c("md5", "sha1","sha256")),
                         actionButton(inputId = "run_btn", label = "Calculate"),
                         collapsible = T,collapsed = T,width = 14,title="Algorithm Setting",solidHeader=T),
