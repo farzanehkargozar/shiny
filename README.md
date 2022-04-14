@@ -73,3 +73,6 @@ shiny::runApp(appDir = getwd(), port = getOption("shiny.port"),
 ### About
 <img src="/example/about.jpg" width="600">
   The summary about web application and description of it.
+  
+###
+<img src="/example/project.gif" width="600">
