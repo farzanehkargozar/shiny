@@ -118,10 +118,10 @@ body <- dashboardBody(
                                        dblclick = 'plot_target_probability_dbl_click',
                                        brush = brushOpts(id = 'plot_target_probability_brush', resetOnNew = T)
                             ),
-                            width = 12, collapsible = T,collapsed = T, title = "Plot of effect probability on GPCR receptors"),
+                            width = 12, collapsible = T,collapsed = T, title = "Prediction probability plot"),
                         
                         box(
-                            title = "Plot of subgraph of candidate drug",
+                            title = "Subgraph",
                             plotOutput('plot_subgraph',
                                        height = 400,
                                        dblclick = 'plot_subgrapgh_dbl_click',
