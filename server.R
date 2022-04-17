@@ -21,6 +21,7 @@ library("ChemmineR")
 # library("dnet")
 library("digest")
 library("ggplot2")
+library("zoom")
 
 drug_apset <- readRDS("inputData/apset.rds")
 drugs <- readRDS("inputData/drugs.rds")
@@ -154,7 +155,11 @@ function(input, output, session) {
                   plot.title = element_text(face = "bold"))
         
         
+    
+        
     })
+    
+    
     
     output$plot_subgraph <- renderPlot({
         if(input$run_btn == 0){

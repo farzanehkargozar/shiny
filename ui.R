@@ -115,8 +115,8 @@ body <- dashboardBody(
                         box(
                             plotOutput('plot_target_probability',
                                        height = 400,
-                                       dblclick = 'plot_target_probability_dbl_click',
-                                       brush = brushOpts(id = 'plot_target_probability_brush', resetOnNew = T)
+                                       # dblclick = 'plot_target_probability_dbl_click',
+                                       # brush = brushOpts(id = 'plot_target_probability_brush', resetOnNew = T)
                             ),
                             width = 12, collapsible = T,collapsed = T, title = "Prediction probability plot"),
                         
@@ -124,8 +124,8 @@ body <- dashboardBody(
                             title = "Subgraph",
                             plotOutput('plot_subgraph',
                                        height = 400,
-                                       dblclick = 'plot_subgrapgh_dbl_click',
-                                       brush = brushOpts(id = 'plot_subgraph_brush', resetOnNew = T)
+                                       # dblclick = 'plot_subgrapgh_dbl_click',
+                                       # brush = brushOpts(id = 'plot_subgraph_brush', resetOnNew = T)
                             ),
                             width = 12, collapsible = T, collapsed = T),
                         
