@@ -27,6 +27,7 @@ drugs <- readRDS("inputData/drugs.rds")
 target_matrix <- readRDS("inputData/drugTargetMatrix.rds")
 randomWalkMatrix <- readRDS("inputData/outMat.rds")
 targetName <- readRDS("inputData/targetName.rds")
+targetabbr <- readRDS("inputData/targetabbr.rds")
 mechanismName <- readRDS("inputData/mechanismName.rds")
 
 if(interactive()){
@@ -152,6 +153,7 @@ function(input, output, session) {
                   panel.grid.minor = element_blank(),
                   plot.title = element_text(face = "bold"))
         
+        
     })
     
     output$plot_subgraph <- renderPlot({
@@ -159,17 +161,46 @@ function(input, output, session) {
             return()
         }
         sortVector <- sort_RandomWalk_vector(randomWalkMatrix, isolate(unknown()[2]))
+        targetVector <- output_target_vector(sortVector, target_matrix, isolate(input$num_target))
         
-        vortex <- c()
-        for (i in 1:isolate(input$num_vortex)) {
-            vortex[i] <- sortVector$node[i]
+        targetOut <- c()
+        
+        
+        unknown_drug <- sdf2ap(read.SDFset(isolate(input$sdf_input$datapath)))
+        
+        for (i in 1:nrow(targetVector)) {
+            flag = FALSE
+            for (j in 1:nrow(sortVector)) {
+                if((targetVector$probability[i] == sortVector$value[j]) && flag==FALSE ){
+                    
+                    
+                    targetOut <- append(targetOut, targetVector$target[i])
+                    flag <- TRUE
+                    
+                }
+            }
+        }
+        # sortVector <- sort_RandomWalk_vector(randomWalkMatrix, isolate(unknown()[2]))
+        # 
+        # vortex <- c()
+        # for (i in 1:isolate(input$num_vortex)) {
+        #     vortex[i] <- sortVector$node[i]
+        #     
+        # }
+        # 
+        
+        name <- c()
+        for (i in 1:length(targetOut)) {
+            
+            name[i] <- targetabbr$Target[targetOut[i]]
             
         }
         
-        data <- data.frame(vortex)
-        st <- make_star(n = isolate(input$num_vortex), mode = "undirected")
+        data <- data.frame(name)
+        st <- make_star(n = isolate(input$num_target), mode = "undirected")
         
-        plot(st, vertex.label = data$vortex)
+        
+        plot.igraph(st, vertex.label = data$name, vertex.size = 40)
     })
      
     output$fingerprint <-renderText({
