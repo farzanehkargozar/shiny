@@ -216,6 +216,59 @@ function(input, output, session) {
          return(hashFingerprint)
      })
     
+    data <- reactiveValues()
+    observeEvent(input$run_btn,{
+        sortVector <- sort_RandomWalk_vector(randomWalkMatrix, isolate(unknown()[2]))
+        targetVector <- output_target_vector(sortVector, target_matrix, isolate(input$num_target))
+        
+        nodeVector <- c()
+        targetOut <- c()
+        targetProbabilityVector <- c()
+        
+        unknown_drug <- sdf2ap(read.SDFset(isolate(input$sdf_input$datapath)))
+        
+        for (i in 1:nrow(targetVector)) {
+            flag = FALSE
+            for (j in 1:nrow(sortVector)) {
+                if((targetVector$probability[i] == sortVector$value[j]) && flag==FALSE ){
+                    
+                    nodeVector <- append(nodeVector, sortVector$node[j])
+                    targetOut <- append(targetOut, targetVector$target[i])
+                    targetProbabilityVector <- append(targetProbabilityVector, cmp.similarity(unknown_drug, drug_apset[j]))
+                    flag <- TRUE
+                    
+                }
+            }
+        }
+        name <- c()
+        for (i in 1:length(nodeVector)) {
+            
+            t1 <- targetName[targetOut[i]]
+            t2 <- mechanismName[nodeVector[i]]
+            name[i] <- paste(t2, t1, sep = "_")
+            
+        }
+        
+        dataForPlot <- data.frame(name = name, probability = targetProbabilityVector)
+        data$plot <-  ggplot(dataForPlot, aes(x = name, y = probability)) +
+            geom_bar(stat = "identity", width=0.2) + theme_minimal() + ggtitle("") +
+            xlab("Name of receptors") +
+            ylab("Probability") +
+            theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 10), 
+                  axis.title.y = element_text(size = 12),
+                  axis.ticks.x = element_blank(),legend.position = "none",
+                  plot.margin = margin(0, 2, 0, 4, "cm"),
+                  panel.grid.minor = element_blank(),
+                  plot.title = element_text(face = "bold"))})
+    
+    
+    output$export_btn_plot <- downloadHandler(
+        filename = function(){paste("probability_plot",'.jpg',sep='')},
+        content = function(file){
+            ggsave(file,plot=data$plot)
+        }
+    )
+    
     
      
      

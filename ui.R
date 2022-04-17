@@ -70,9 +70,9 @@ body <- dashboardBody(
                     
                     box(
                         downloadButton('export_btn_fingerprint','Export Fingerprint'),
-                        # br(),
-                        # br(),
-                        # downloadButton('export_btn_plot','Export plot'),
+                        br(),
+                        br(),
+                        downloadButton('export_btn_plot','Export plot'),
                         collapsible = T,collapsed = T,width = 14,title="Export",solidHeader=T),
                     
                       
