@@ -21,7 +21,6 @@ library("ChemmineR")
 # library("dnet")
 library("digest")
 library("ggplot2")
-library("zoom")
 
 drug_apset <- readRDS("inputData/apset.rds")
 drugs <- readRDS("inputData/drugs.rds")
