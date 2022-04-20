@@ -234,7 +234,7 @@ function(input, output, session) {
                     
                     nodeVector <- append(nodeVector, sortVector$node[j])
                     targetOut <- append(targetOut, targetVector$target[i])
-                    targetProbabilityVector <- append(targetProbabilityVector, cmp.similarity(unknown_drug, drug_apset[j]))
+                    targetProbabilityVector <- append(targetProbabilityVector, cmp.similarity(unknown_drug, drug_apset[sortVector$node[j]]))
                     flag <- TRUE
                     
                 }
